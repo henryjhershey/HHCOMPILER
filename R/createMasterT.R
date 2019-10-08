@@ -11,35 +11,26 @@
 
 
 createMasterT  <-  function(drive,batch){ 
-  if (!requireNamespace("plyr", quietly = TRUE)) {
-    stop("Package \"plyr\" needed for this function to work. Please install it.",
-      call. = FALSE)
-  } 
-    if (!requireNamespace("lubridate", quietly = TRUE)) {
-       stop("Package \"lubridate\" needed for this function to work. Please install it.",
-      call. = FALSE)
-      } 
-    if (!requireNamespace("readr", quietly = TRUE)) {
-       stop("Package \"readr\" needed for this function to work. Please install it.",
-      call. = FALSE)
-      }
+  
   path1 = paste(drive,":/USACEFISHPASS/DATA/TELEMETRY/BATCHES/",batch,"/POSITIONS",sep="")
   print(path1)
   
-  read_csv_filename <- function(filename){
-    ret       <- read.csv(filename,stringsAsFactors = F)
-    ret$tagID <- unlist(strsplit(filename, split = "_", fixed = T))[1] #EDIT
-    ret
-  }
+  library(plyr)
+ 
   
-  suppressWarnings(for(i in 1:length(path1)){
+  for(i in 1:length(path1)){
     filenames   <- list.files(path1[i])
-    
+    read_csv_filename <- function(filename){
+      ret       <- read.csv(paste(path1[i],filename,sep="/"),stringsAsFactors = F)
+      ret$tagID <- unlist(strsplit(filename, split = "_", fixed = T))[1] #EDIT
+      ret
+    }
     #apply read.csv to all filenames in working directory then row bind csvs together
     temp_mast <- ldply(filenames, read_csv_filename)
     if (i == 1) mast = temp_mast else mast = rbind(mast,temp_mast)
-  })
+  }
   
   return(mast)
   
 }
+dat2 <- createMasterT(drive="G",batch="FP11 ARRAY")
