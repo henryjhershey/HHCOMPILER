@@ -1,6 +1,6 @@
 
-title: "Compiling Telemetry Data from the USACEFISHPASS Data Base"
-author: "by Henry Hershey"
+# Compiling Telemetry Data from the USACEFISHPASS Database
+## by Henry Hershey
 
 
 ```{r setup, include=FALSE}
@@ -8,7 +8,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 
-##important notes on usage
+## important notes on usage
 1. In order to be able to use these functions, you have to download the HHCOMPILER package from Henry's GitHub page. The source code is also saved in the database, so you could get it that way too. Run the following code to install and load the package.
 
 ```{r eval=F}
