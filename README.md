@@ -1,11 +1,7 @@
----
+
 title: "Compiling Telemetry Data from the USACEFISHPASS Data Base"
 author: "by Henry Hershey"
-output:
-  html_document: default
-  pdf_document: default
-  word_document: default
----
+
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
@@ -13,10 +9,12 @@ knitr::opts_chunk$set(echo = TRUE)
 
 
 ##important notes on usage
-1. In order to be able to use these functions, you have to load the script file called "HHCOMPILER.R" which has the source code for the functions. It is saved in the database, and also available on Henry's github page. Run the following code, replacing the word `DRIVE` (leave the colon) with either the local drive "C", or the backup drive, which could be E or G:
+1. In order to be able to use these functions, you have to download the HHCOMPILER package from Henry's GitHub page. The source code is also saved in the database, so you could get it that way too. Run the following code to install and load the package.
 
 ```{r eval=F}
-source(":DRIVE/USACEFISHPASS/CODE/TELEMETRY/HHCOMPILER.R")
+install.packages("devtools")
+devtools::install_github("henryjhershey/HHCOMPILER")
+library(HHCOMPILER)
 ```
 
 2. You also have to install three packages in order for the functions to work. But, you only have to do this the first time. Once the packages are downloaded onto your machine, they will stay there. Run the following code to download the packages:
