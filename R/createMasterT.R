@@ -33,4 +33,3 @@ createMasterT  <-  function(drive,batch){
   return(mast)
   
 }
-dat2 <- createMasterT(drive="G",batch="FP11 ARRAY")
