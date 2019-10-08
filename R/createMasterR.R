@@ -18,15 +18,15 @@ createMasterR  <-  function(drive,batch,EMG=FALSE,tagIDs){
  library(readr,quietly=T)
   library(plyr,quietly=T)
   library(lubridate,quietly=T)
-  path1 = paste(drive,":/USACEFISHPASS/DATA/TELEMETRY/BATCHES/",batch,"/TEXTFILES",sep="")
+  path1 = paste(drive,":/USACEFISHPASS/DATA/TELEMETRY/BATCHES/",batch,"/",sep="")
   print(path1)
   
   suppressWarnings(for(i in 1:length(path1)){
     filenames   <- list.files(path1[i])
     read_fwf_filenameEMG <- function(filename){
-      if(EMG==T){ret = suppressMessages(read_fwf(paste(path1[i],filename,sep="/"), 
+      if(EMG==T){ret = suppressMessages(read_fwf(paste(path1[i],"CEMG",filename,sep="/"), 
                                                  fwf_widths(c(10,10,10,10,11,8,7,10),col_names=c("Date","Time","Channel","EMGID","Antenna","Power","Data","SensorType"))
-      ))} else { ret = suppressMessages(read_fwf(paste(path1[i],filename,sep="/"),
+      ))} else { ret = suppressMessages(read_fwf(paste(path1[i],"CART",filename,sep="/"),
                                                  fwf_widths(c(8,11,10,10,13,7),col_names=c("Date","Time","Channel","TagID","Antenna","Power"))))
       }
       as.data.frame(ret)
