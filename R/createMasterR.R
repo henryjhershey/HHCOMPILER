@@ -15,18 +15,9 @@
 
 
 createMasterR  <-  function(drive,batch,EMG=FALSE,tagIDs){ 
-  if (!requireNamespace("plyr", quietly = TRUE)) {
-    stop("Package \"plyr\" needed for this function to work. Please install it.",
-      call. = FALSE)
-  } 
-    if (!requireNamespace("lubridate", quietly = TRUE)) {
-       stop("Package \"lubridate\" needed for this function to work. Please install it.",
-      call. = FALSE)
-      } 
-    if (!requireNamespace("readr", quietly = TRUE)) {
-       stop("Package \"readr\" needed for this function to work. Please install it.",
-      call. = FALSE)
-      }
+  library(readr)
+  library(plyr)
+  library(lubridate)
   path1 = paste(drive,":/USACEFISHPASS/DATA/TELEMETRY/BATCHES/",batch,"/TEXTFILES",sep="")
   print(path1)
   
