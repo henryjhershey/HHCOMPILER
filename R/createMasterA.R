@@ -11,18 +11,9 @@
 #' createMasterA(drive="G",batch=c("UC ARRAY","LC ARRAY"),tagIDs=fish$M.Code.ID)
 
 createMasterA  <-  function(drive,batch,tagIDs){ 
-    if (!requireNamespace("plyr", quietly = TRUE)) {
-    stop("Package \"plyr\" needed for this function to work. Please install it.",
-      call. = FALSE)
-  } 
-    if (!requireNamespace("lubridate", quietly = TRUE)) {
-       stop("Package \"lubridate\" needed for this function to work. Please install it.",
-      call. = FALSE)
-      } 
-    if (!requireNamespace("readr", quietly = TRUE)) {
-       stop("Package \"readr\" needed for this function to work. Please install it.",
-      call. = FALSE)
-      }
+  library(readr)
+  library(plyr)
+  library(lubridate)
   path1 = paste(drive,":/USACEFISHPASS/DATA/TELEMETRY/BATCHES/",batch,"/TEXTFILES",sep="")
   print(path1)
   # # create list of csvs that are in the path
