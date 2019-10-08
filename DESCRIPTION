@@ -6,8 +6,8 @@ Authors@R:
            family = "Hershey",
            role = c("aut", "cre"),
            email = "henryjhershey@gmail.com")
-Imports: lubridate
-         plyr
+Imports: lubridate,
+         plyr,
          readr
 Description: This package allows users to download and compile data from the USACEFISHPASS database at Auburn University.
 License: None
