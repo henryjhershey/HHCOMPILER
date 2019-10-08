@@ -11,12 +11,11 @@
 
 
 createMasterT  <-  function(drive,batch){ 
-  
+  library(readr)
+  library(plyr)
+  library(lubridate)
   path1 = paste(drive,":/USACEFISHPASS/DATA/TELEMETRY/BATCHES/",batch,"/POSITIONS",sep="")
   print(path1)
-  
-  library(plyr)
- 
   
   for(i in 1:length(path1)){
     filenames   <- list.files(path1[i])
