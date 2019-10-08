@@ -11,11 +11,11 @@ devtools::install_github("henryjhershey/HHCOMPILER")
 library(HHCOMPILER)
 ```
 
-2. You also have to install three packages in order for the functions to work. But, you only have to do this the first time. Once the packages are downloaded onto your machine, they will stay there. Run the following code to download the packages:
+2. You also have to install three other packages in order for the functions to work. But, you only have to do this one time. Once the packages are downloaded onto your machine, they will stay there, but you will have to load them over again for each new R session. Run the following code to install and load the packages:
 ```{r eval=F}
 install.packages(c("lubridate","readr","plyr"))
+library(lubridate);library(plyr);library(readr)
 ```
-
 
 ## createMasterA
 
