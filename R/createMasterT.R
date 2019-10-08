@@ -11,9 +11,9 @@
 
 
 createMasterT  <-  function(drive,batch){ 
-  library(readr)
-  library(plyr)
-  library(lubridate)
+  library(readr,quietly=T)
+  library(plyr,quietly=T)
+  library(lubridate,quietly=T)
   path1 = paste(drive,":/USACEFISHPASS/DATA/TELEMETRY/BATCHES/",batch,"/POSITIONS",sep="")
   print(path1)
   
