@@ -14,10 +14,12 @@ createMasterA  <-  function(drive,batch,tagIDs){
     if (!requireNamespace("plyr", quietly = TRUE)) {
     stop("Package \"plyr\" needed for this function to work. Please install it.",
       call. = FALSE)
-  } else if (!requireNamespace("lubridate", quietly = TRUE)) {
+  } 
+    if (!requireNamespace("lubridate", quietly = TRUE)) {
        stop("Package \"lubridate\" needed for this function to work. Please install it.",
       call. = FALSE)
-      } else if (!requireNamespace("readr", quietly = TRUE)) {
+      } 
+    if (!requireNamespace("readr", quietly = TRUE)) {
        stop("Package \"readr\" needed for this function to work. Please install it.",
       call. = FALSE)
       }
