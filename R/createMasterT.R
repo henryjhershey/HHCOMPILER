@@ -11,11 +11,21 @@
 
 
 createMasterT  <-  function(drive,batch){ 
-  
+  if (!requireNamespace("plyr", quietly = TRUE)) {
+    stop("Package \"plyr\" needed for this function to work. Please install it.",
+      call. = FALSE)
+  } 
+    if (!requireNamespace("lubridate", quietly = TRUE)) {
+       stop("Package \"lubridate\" needed for this function to work. Please install it.",
+      call. = FALSE)
+      } 
+    if (!requireNamespace("readr", quietly = TRUE)) {
+       stop("Package \"readr\" needed for this function to work. Please install it.",
+      call. = FALSE)
+      }
   path1 = paste(drive,":/USACEFISHPASS/DATA/TELEMETRY/BATCHES/",batch,"/POSITIONS",sep="")
   print(path1)
   
-  library(plyr)
   read_csv_filename <- function(filename){
     ret       <- read.csv(filename,stringsAsFactors = F)
     ret$tagID <- unlist(strsplit(filename, split = "_", fixed = T))[1] #EDIT
