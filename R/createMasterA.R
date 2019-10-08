@@ -11,9 +11,9 @@
 #' createMasterA(drive="G",batch=c("UC ARRAY","LC ARRAY"),tagIDs=fish$M.Code.ID)
 
 createMasterA  <-  function(drive,batch,tagIDs){ 
-  library(readr)
-  library(plyr)
-  library(lubridate)
+  library(readr,quietly=T)
+  library(plyr,quietly=T)
+  library(lubridate,quietly=T)
   path1 = paste(drive,":/USACEFISHPASS/DATA/TELEMETRY/BATCHES/",batch,"/TEXTFILES",sep="")
   print(path1)
   # # create list of csvs that are in the path
