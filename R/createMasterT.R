@@ -28,7 +28,7 @@ createMasterT  <-  function(drive,batch){
     temp_mast <- ldply(filenames, read_csv_filename)
     if (i == 1) mast = temp_mast else mast = rbind(mast,temp_mast)
   }
-  
+  colnames(mast)[3:4] <- c("x","y")
   return(mast)
   
 }
