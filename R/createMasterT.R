@@ -22,6 +22,7 @@ createMasterT  <-  function(drive,batch){
     read_csv_filename <- function(filename){
       ret       <- read.csv(paste(path1[i],filename,sep="/"),stringsAsFactors = F)
       ret$tagID <- unlist(strsplit(filename, split = "_", fixed = T))[1] #EDIT
+      ret$timestamp <- as.POSIXct(ret$Unix.Time, origin="1970-01-01")
       ret
     }
     #apply read.csv to all filenames in working directory then row bind csvs together
