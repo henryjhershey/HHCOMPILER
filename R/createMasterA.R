@@ -31,7 +31,7 @@ createMasterA  <-  function(drive,batch,tagIDs){
   })
   colnames(mast) <- c("Date","Time","TOA","TagID","Type","Value","Power","Receiver")
   mast <- mast[!(mast$TagID %in% tagIDs ==F),]
-  mast$timestamp = mdy_hms(paste(mast$Date,mast$Time))
+  mast$timestamp = mdy_hms(paste(mast$Date,mast$Time),tz="America/Chicago")
   return(mast[mast$timestamp > ymd_hms("2017-01-01 00:00:00"),])
 }
 
