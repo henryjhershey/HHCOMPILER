@@ -18,7 +18,7 @@ createMasterR  <-  function(drive,batch,EMG=FALSE,tagIDs){
  library(readr,quietly=T)
   library(plyr,quietly=T)
   library(lubridate,quietly=T)
-  path1 = paste(drive,":/USACEFISHPASS/DATA/TELEMETRY/BATCHES/",batch,"/",sep="")
+  path1 = paste(drive,":/USACEFISHPASS/DATA/TELEMETRY/BATCHES/",batch,sep="")
   print(path1)
   
   suppressWarnings(for(i in 1:length(path1)){
