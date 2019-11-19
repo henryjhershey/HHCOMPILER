@@ -37,7 +37,7 @@ createMasterR  <-  function(drive,batch,EMG=FALSE,tagIDs){
   # create list of csvs that are in the working directory
   
   if(EMG==T) mast=na.omit(mast[mast$SensorType == "CEMG2",]) else mast=mast[!(mast$TagID %in% tagIDs==F),]
-  mast$timestamp <- mdy_hms(paste(mast$Date, mast$Time, sep=" "))
+  mast$timestamp <- mdy_hms(paste(mast$Date, mast$Time, sep=" "), tz="America/Chicago")
   if(EMG==T) mast= mast[order(mast$EMGID,mast$timestamp),] else mast = mast[order(mast$TagID,mast$timestamp),]
   
   return(mast)
